@@ -33,21 +33,20 @@ func maxArea1(height []int) int {
 
 // maxArea2
 // 利用一层循环，向中间移动，直到相遇
-func maxArea2(height []int) int {
+func maxArea(height []int) int {
 	maxArea, i, j := 0, 0, len(height)-1
 	for i < j {
 		width := j - i
-		high := height[j]
+		high := 0
 		if height[i] < height[j] {
 			high = height[i]
+			i++
+		} else {
+			high = height[j]
+			j--
 		}
 		if maxArea < width*high {
 			maxArea = width * high
-		}
-		if height[i] < height[j] {
-			i++
-		} else {
-			j--
 		}
 	}
 	return maxArea
