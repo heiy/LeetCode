@@ -15,8 +15,8 @@ package leetcode
 //第三阶只能从第二阶和第一阶上，第三阶就是第二阶的走法+第一阶的走法
 //同理第四阶只能从第三阶和第二阶上，第四阶就是第三阶的走法+第二阶的走法
 func climbStairs(n int) int {
-	if n == 1 {
-		return 1
+	if n < 2 {
+		return n
 	}
 	f1, f2 := 1, 2
 	for i := 2; i < n; i++ {
